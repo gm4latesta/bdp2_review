@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build https://github.com/gm4latesta/bdp2_review.git#master:docker --tag bdp2022/bdp2_review_docker
     - name: Push the image to docker hub 
-      run: docker login -u bdp2022 -p ${{ secrets.DOCKER_TOKEN}} && docker push bdp2022/bdp2_review_docker
+      run: docker login -u bdp2022 -p 202f1272-3cb9-4186-96f7-3e829a4408e5 && docker push bdp2022/bdp2_review_docker
