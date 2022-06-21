@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . -f /home/ubuntu/review/bdp2_review/docker/Dockerfile --tag bdp2022/bdp2_review_docker
+      run: docker build https://github.com/gm4latesta/bdp2_review/tree/master/docker --tag bdp2022/bdp2_review_docker
     - name: Push the image to docker hub 
       run: docker login -u bdp2022 -p ${{ secrets.DOCKER_TOKEN}} && docker push bdp2022/bdp2_review_docker
