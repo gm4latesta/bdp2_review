@@ -1,26 +1,39 @@
 version: '3'
-volumes:
- portainer_data:
 services:
- jupyter:
-  image: bdp2022/bdp2_review_docker:latest
-  ports: 
-   - 8888:8888
-  environment:
-   - GEN_CERT=yes
-  volumes:
-   - $PWD/work:/home/jovyan/work
- 
- portainer:
-  image: portainer/portainer
-  ports:
-    - 9000:9000
-  restart: always
-  volumes:
-   - portainer_data:/data
-   - /var/run/docker.sock:/var/run/docker.sock
- redis:
-  image: redis:6.2-alpine
-  ports:
-     - 6379:6379
-  command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel warning
+   jiupyter:
+      container_name: my_jupyter
+      image: bdp2022/bdp2_review_docker:latest
+      restart: always 
+      ports: 
+         - 80:8888
+      environment:
+         - GEN_CERT=yes
+         - JUPYTER_ENABLE_LAB=yes
+         - JUPYTER_TOKEN="bdp2_password"
+         - CHOWN_HOME=yes
+         - CHOWN_HOME_OPTS="-R"
+      networks:
+         - bdp2-net
+      volumes:
+         - ~/review:/home/jovyan
+
+   portainer:
+      image: portainer/portainer
+      ports:
+         - 9000:9000
+      restart: always
+      volumes:
+         - portainer_data:/data
+         - /var/run/docker.sock:/var/run/docker.sock
+   redis:
+      image: redis:6.2-alpine
+      ports:
+         - 6379:6379
+      command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel warning
+
+networks:
+ bdp2-net:
+
+volumes: 
+ portainer_data: 
+
