@@ -21,6 +21,8 @@ services:
       ports:
          - 9000:9000
       restart: always
+      networks:
+         - bdp2-net
       volumes:
          - portainer_data:/data
          - /var/run/docker.sock:/var/run/docker.sock
@@ -28,11 +30,12 @@ services:
       image: redis:6.2-alpine
       ports:
          - 6379:6379
+      networks:
+         - bdp2-net
       command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel warning
 
 networks:
  bdp2-net:
 
-volumes: 
- portainer_data: 
-
+volumes:
+ portainer_data:
