@@ -14,7 +14,7 @@ services:
       networks:
          - bdp2-net
       volumes:
-         - ~/review:/home/jovyan
+         - $PWD/work:/home/jovyan/work
 
    portainer:
       image: portainer/portainer
@@ -34,8 +34,9 @@ services:
          - bdp2-net
       command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel warning
 
+volumes:
+ portainer_data:
+
 networks:
  bdp2-net:
 
-volumes:
- portainer_data:
