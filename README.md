@@ -15,7 +15,7 @@ docker run -d --rm --name my_jupyter -v ~/review:/home/jovyan -p 80:8888 --netwo
 For connecting to the Jupiter notebook use the URL `http://<public-IP-machine>:80`
 
 ### docker-compose.yml 
-This file contains three services. One builds the custom Jupiter image, one the Redis image, one the Portainer image.
+This file contains three services. One builds the custom Jupiter image (bdp2022/bdp2_review_docker:lates), one the Redis image, one the Portainer image.
 The bdp2-net is the custom bridge for conneting all the containers. Removing it, docker-compose will create a new bridge automatically. 
 In order to run this command docker-compose need to be available on the machine. 
 ```
