@@ -5,9 +5,8 @@ services:
       image: bdp2022/bdp2_review_docker:latest
       restart: always 
       ports: 
-         - 80:8888
+         - 8888:8888
       environment:
-         - GEN_CERT=yes
          - JUPYTER_ENABLE_LAB=yes
          - JUPYTER_TOKEN="bdp2_password"
          - CHOWN_HOME=yes
