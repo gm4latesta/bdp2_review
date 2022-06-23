@@ -6,7 +6,7 @@ This repositery contains different files needed for creating a custom Jupiter No
 Inside there is a docker-image.yml action used for connecting the GitHub repo to the DockerHub account. 
 
 ### docker 
-Inside there is a Dockerfile that allows to install redis into the jupiter/minimal-notebook image. This avoid the problem of installis redis each time we need to use Jupyter. Indeed it is not needed to run the command `! pip install redis` each time, but just to `import redis`. 
+Inside there is a Dockerfile that allows to install redis into the jupiter/minimal-notebook image. This avoid the problem of installing redis each time we need to use Jupyter. Indeed it is not needed to run the command `! pip install redis` each time, but just to `import redis`. 
 
 For running the custom image use the command 
 ```
@@ -23,7 +23,7 @@ sudo apt update && sudo apt install -y docker-compose
 ```
 Remember to open the ports of the services to the machine. 
 
-In order to start the three container use 
+In order to start the three containers use 
 ```
 docker-compose up -d
 ```
