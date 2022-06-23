@@ -12,7 +12,7 @@ For running the custom image use the command
 ```
 docker run -d --rm --name my_jupyter -v ~/review:/home/jovyan -p 80:8888 --network bdp2-net -e JUPYTER_ENABLE_LAB=yes -e JUPYTER_TOKEN="bdp2_password" --user root -e CHOWN_HOME=yes -e CHOWN_HOME_OPTS="-R" bdp2022/bdp2_review_docker:latest
 ```
-For connecting to the Jupiter notebook use the URL http://public-IP-machine:80
+For connecting to the Jupiter notebook use the URL `http://<public-IP-machine>:80`
 
 ### docker-compose.yml 
 This file contains three services. One build the custom Jupiter image, one the Redis image, one the Portainer image.
